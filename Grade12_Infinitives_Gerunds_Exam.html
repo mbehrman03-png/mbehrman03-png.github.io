@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Grade 12 C1 Grammar Exam</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #dfe9f3, #ffffff);
+    min-height: 100vh;
+    color: #222;
+}
+
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.header {
+    background: #243b53;
+    color: white;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.header h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+}
+
+.header p {
+    margin: 5px;
+    font-size: 17px;
+}
+
+.progress-area {
+    background: white;
+    padding: 15px 20px;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #2ecc71;
+    width: 2.5%;
+    transition: width 0.4s;
+}
+
+.question-card,
+.answer-card,
+.results-card {
+    background: white;
+    margin-top: 20px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+}
+
+.question-number {
+    color: #2878b5;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.question {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.option {
+    background: #f5f7fa;
+    border: 3px solid #d9e1e8;
+    padding: 16px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 19px;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #eaf4fb;
+    border-color: #3498db;
+}
+
+.option.selected {
+    background: #d9efff;
+    border-color: #2980b9;
+}
+
+.submit-button,
+.next-button,
+.restart-button {
+    border: none;
+    border-radius: 12px;
+    padding: 15px 30px;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: 0.2s;
+}
+
+.submit-button {
+    background: #2980b9;
+    color: white;
+}
+
+.submit-button:hover {
+    background: #216694;
+}
+
+.next-button {
+    background: #27ae60;
+    color: white;
+}
+
+.next-button:hover {
+    background: #219150;
+}
+
+.restart-button {
+    background: #8e44ad;
+    color: white;
+}
+
+.restart-button:hover {
+    background: #71368a;
+}
+
+.feedback {
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.correct-feedback {
+    background: #dff8e8;
+    color: #16803c;
+    border: 2px solid #72d39a;
+}
+
+.incorrect-feedback {
+    background: #ffe5e5;
+    color: #c0392b;
+    border: 2px solid #ef9a9a;
+}
+
+.answer-title {
+    font-size: 25px;
+    color: #243b53;
+    margin-bottom: 15px;
+}
+
+.correct-answer {
+    font-size: 23px;
+    font-weight: bold;
+    color: #16803c;
+    background: #eefaf2;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.explanation {
+    background: #f5f7fa;
+    border-left: 5px solid #3498db;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.explanation strong {
+    color: #243b53;
+}
+
+.results-card {
+    text-align: center;
+}
+
+.results-card h2 {
+    color: #243b53;
+    font-size: 34px;
+}
+
+.final-score {
+    font-size: 45px;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 20px;
+}
+
+.grade-message {
+    font-size: 22px;
+    margin: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.score-small {
+    color: #555;
+    margin-top: 10px;
+}
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 96%;
+        margin: 15px auto;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .question-card,
+    .answer-card,
+    .results-card {
+        padding: 22px;
+    }
+
+    .question {
+        font-size: 20px;
+    }
+
+    .option {
+        font-size: 17px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>Grade 12 C1 Grammar Exam</h1>
+
+        <p>
+            Infinitives, Bare Infinitives & Gerunds
+        </p>
+
+        <p>
+            40 Questions • No Time Limit
+        </p>
+
+    </div>
+
+
+    <div class="progress-area">
+
+        <div class="progress-text">
+
+            <span id="progressText">
+                Question 1 of 40
+            </span>
+
+            <span id="scoreText">
+                Score: 0
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION SCREEN -->
+
+    <div
+        class="question-card"
+        id="questionScreen">
+
+        <div
+            class="question-number"
+            id="questionNumber">
+            Question 1
+        </div>
+
+        <div
+            class="question"
+            id="questionText">
+        </div>
+
+        <div
+            class="options"
+            id="options">
+        </div>
+
+        <button
+            class="submit-button"
+            onclick="submitAnswer()">
+
+            Submit Answer
+
+        </button>
+
+    </div>
+
+
+    <!-- ANSWER SCREEN -->
+
+    <div
+        class="answer-card hidden"
+        id="answerScreen">
+
+        <div
+            id="feedback">
+        </div>
+
+        <div class="answer-title">
+            Correct Answer
+        </div>
+
+        <div
+            class="correct-answer"
+            id="correctAnswer">
+        </div>
+
+        <div class="answer-title">
+            Why?
+        </div>
+
+        <div
+            class="explanation"
+            id="explanation">
+        </div>
+
+        <button
+            class="next-button"
+            onclick="nextQuestion()"
+            id="nextButton">
+
+            Next Question →
+
+        </button>
+
+    </div>
+
+
+    <!-- RESULTS SCREEN -->
+
+    <div
+        class="results-card hidden"
+        id="resultsScreen">
+
+        <h2>
+            🎉 Exam Complete!
+        </h2>
+
+        <div class="final-score"
+             id="finalScore">
+        </div>
+
+        <div
+            class="grade-message"
+            id="gradeMessage">
+        </div>
+
+        <p>
+            You completed all 40 questions.
+        </p>
+
+        <button
+            class="restart-button"
+            onclick="restartExam()">
+
+            🔄 Take the Exam Again
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+
+const questions = [
+
+{
+question:
+"She decided _____ abroad after graduating from university.",
+
+options: [
+"studying",
+"to study",
+"study",
+"studied"
+],
+
+answer: 1,
+
+explanation:
+"After the verb <strong>decide</strong>, we normally use the <strong>to-infinitive</strong>: <em>decide to do something</em>. Therefore, <strong>to study</strong> is correct."
+},
+
+
+{
+question:
+"The manager made the employees _____ late to finish the project.",
+
+options: [
+"to stay",
+"staying",
+"stay",
+"stayed"
+],
+
+answer: 2,
+
+explanation:
+"After the causative verb <strong>make</strong> + object, we use the <strong>bare infinitive</strong>: <em>make someone do something</em>. Therefore, <strong>stay</strong> is correct."
+},
+
+
+{
+question:
+"I can't stand _____ in long queues at the airport.",
+
+options: [
+"to wait",
+"wait",
+"waiting",
+"waited"
+],
+
+answer: 2,
+
+explanation:
+"The expression <strong>can't stand</strong> is followed by a <strong>gerund (-ing)</strong> when referring to an activity. Therefore, <strong>waiting</strong> is correct."
+},
+
+
+{
+question:
+"The teacher encouraged us _____ more academic vocabulary.",
+
+options: [
+"learn",
+"learning",
+"to learn",
+"learned"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>encourage</strong> is followed by an object + <strong>to-infinitive</strong>: <em>encourage someone to do something</em>. Therefore, <strong>to learn</strong> is correct."
+},
+
+
+{
+question:
+"Would you mind _____ the window? It's rather warm in here.",
+
+options: [
+"to open",
+"open",
+"opening",
+"opened"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Would you mind</strong> is followed by a <strong>gerund</strong>: <em>Would you mind doing...?</em> Therefore, <strong>opening</strong> is correct."
+},
+
+
+{
+question:
+"She let her younger brother _____ her laptop for the afternoon.",
+
+options: [
+"to use",
+"using",
+"use",
+"used"
+],
+
+answer: 2,
+
+explanation:
+"After <strong>let + object</strong>, we use the <strong>bare infinitive</strong>: <em>let someone do something</em>. Therefore, <strong>use</strong> is correct."
+},
+
+
+{
+question:
+"He admitted _____ the confidential document by mistake.",
+
+options: [
+"to send",
+"send",
+"sending",
+"sent"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>admit</strong> is followed by a <strong>gerund</strong>: <em>admit doing something</em>. Therefore, <strong>sending</strong> is correct."
+},
+
+
+{
+question:
+"We expect the new policy _____ several changes to the university system.",
+
+options: [
+"causing",
+"cause",
+"to cause",
+"caused"
+],
+
+answer: 2,
+
+explanation:
+"After <strong>expect + object</strong>, we use the <strong>to-infinitive</strong>: <em>expect something to happen</em>. Therefore, <strong>to cause</strong> is correct."
+},
+
+
+{
+question:
+"She avoided _____ about the disagreement during the meeting.",
+
+options: [
+"to talk",
+"talk",
+"talking",
+"talked"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>avoid</strong> is followed by a <strong>gerund</strong>, not an infinitive. Therefore, <strong>talking</strong> is correct."
+},
+
+
+{
+question:
+"The doctor advised him _____ more exercise.",
+
+options: [
+"get",
+"getting",
+"to get",
+"got"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Advise + object</strong> is normally followed by the <strong>to-infinitive</strong>: <em>advise someone to do something</em>. Therefore, <strong>to get</strong> is correct."
+},
+
+
+{
+question:
+"I saw the children _____ across the field when I arrived.",
+
+options: [
+"to run",
+"running",
+"run",
+"ran"
+],
+
+answer: 1,
+
+explanation:
+"After verbs of perception such as <strong>see</strong>, we can use the present participle to emphasize an action in progress. <strong>Running</strong> means the speaker saw the children while the action was happening."
+},
+
+
+{
+question:
+"She refused _____ responsibility for the mistake.",
+
+options: [
+"taking",
+"take",
+"to take",
+"taken"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>refuse</strong> is followed by the <strong>to-infinitive</strong>: <em>refuse to do something</em>. Therefore, <strong>to take</strong> is correct."
+},
+
+
+{
+question:
+"His parents encouraged him _____ harder for the entrance examination.",
+
+options: [
+"studying",
+"study",
+"to study",
+"studied"
+],
+
+answer: 2,
+
+explanation:
+"With <strong>encourage + object</strong>, we use the <strong>to-infinitive</strong>: <em>encourage someone to do something</em>. Therefore, <strong>to study</strong> is correct."
+},
+
+
+{
+question:
+"She suggested _____ the meeting until next Monday.",
+
+options: [
+"to postpone",
+"postpone",
+"postponing",
+"postponed"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>suggest</strong> is followed by a <strong>gerund</strong> when the next word is an activity: <em>suggest doing something</em>. Therefore, <strong>postponing</strong> is correct."
+},
+
+
+{
+question:
+"The coach made the players _____ the exercise again.",
+
+options: [
+"to do",
+"doing",
+"do",
+"done"
+],
+
+answer: 2,
+
+explanation:
+"After <strong>make + object</strong>, English uses the <strong>bare infinitive</strong>: <em>make someone do something</em>. Therefore, <strong>do</strong> is correct."
+},
+
+
+{
+question:
+"She promised _____ me as soon as she arrived.",
+
+options: [
+"calling",
+"call",
+"to call",
+"called"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>promise</strong> is followed by the <strong>to-infinitive</strong>: <em>promise to do something</em>. Therefore, <strong>to call</strong> is correct."
+},
+
+
+{
+question:
+"He is considering _____ to another university next year.",
+
+options: [
+"to transfer",
+"transfer",
+"transferring",
+"transferred"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>consider</strong> is followed by a <strong>gerund</strong>: <em>consider doing something</em>. Therefore, <strong>transferring</strong> is correct."
+},
+
+
+{
+question:
+"You had better _____ a copy of the document before sending it.",
+
+options: [
+"to make",
+"making",
+"make",
+"made"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Had better</strong> is followed by the <strong>bare infinitive</strong>: <em>had better do something</em>. Therefore, <strong>make</strong> is correct."
+},
+
+
+{
+question:
+"They managed _____ the problem before the deadline.",
+
+options: [
+"solving",
+"solve",
+"to solve",
+"solved"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>manage</strong> is followed by the <strong>to-infinitive</strong>: <em>manage to do something</em>. Therefore, <strong>to solve</strong> is correct."
+},
+
+
+{
+question:
+"She regrets _____ him about the confidential information.",
+
+options: [
+"to tell",
+"tell",
+"telling",
+"told"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Regret + gerund</strong> is used when we are sorry about something that happened in the past. Therefore, <strong>telling</strong> is correct."
+},
+
+
+{
+question:
+"The professor allowed the students _____ their assignments late.",
+
+options: [
+"submit",
+"submitting",
+"to submit",
+"submitted"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Allow + object</strong> is followed by the <strong>to-infinitive</strong>: <em>allow someone to do something</em>. Therefore, <strong>to submit</strong> is correct."
+},
+
+
+{
+question:
+"I remember _____ this book when I was at university.",
+
+options: [
+"to read",
+"read",
+"reading",
+"to reading"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Remember + gerund</strong> refers to remembering a past experience or action. Therefore, <strong>reading</strong> is correct."
+},
+
+
+{
+question:
+"Please remember _____ the lights before you leave.",
+
+options: [
+"turning off",
+"turn off",
+"to turn off",
+"turned off"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Remember + to-infinitive</strong> means not forgetting to perform a future or necessary action. Therefore, <strong>to turn off</strong> is correct."
+},
+
+
+{
+question:
+"She stopped _____ when the teacher entered the room.",
+
+options: [
+"to talk",
+"talk",
+"talking",
+"talked"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Stop + gerund</strong> means to cease an activity. She stopped the activity of talking. Therefore, <strong>talking</strong> is correct."
+},
+
+
+{
+question:
+"After working for three hours, he stopped _____ a cup of coffee.",
+
+options: [
+"drinking",
+"to drink",
+"drink",
+"drank"
+],
+
+answer: 1,
+
+explanation:
+"<strong>Stop + to-infinitive</strong> means to stop one activity in order to perform another activity. He stopped working in order <strong>to drink</strong> coffee."
+},
+
+
+{
+question:
+"I regret _____ you that your application was unsuccessful.",
+
+options: [
+"informing",
+"inform",
+"to inform",
+"informed"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Regret + to-infinitive</strong> is commonly used in formal language when giving bad news. Therefore, <strong>to inform</strong> is correct."
+},
+
+
+{
+question:
+"He tried _____ the heavy box, but it was impossible.",
+
+options: [
+"lifting",
+"to lift",
+"lift",
+"lifted"
+],
+
+answer: 1,
+
+explanation:
+"<strong>Try + to-infinitive</strong> means make an effort to do something. Therefore, <strong>to lift</strong> is correct."
+},
+
+
+{
+question:
+"Try _____ some warm water if your throat is sore.",
+
+options: [
+"to drink",
+"drink",
+"drinking",
+"drank"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Try + gerund</strong> means experiment with an action as a possible solution. Therefore, <strong>drinking</strong> is correct."
+},
+
+
+{
+question:
+"She went on _____ about the problem even though everyone had understood it.",
+
+options: [
+"to talk",
+"talk",
+"talking",
+"talked"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Go on + gerund</strong> means continue doing the same activity. Therefore, <strong>talking</strong> is correct."
+},
+
+
+{
+question:
+"After discussing the first issue, the chairman went on _____ the next item.",
+
+options: [
+"discussing",
+"discuss",
+"to discuss",
+"discussed"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Go on + to-infinitive</strong> can mean move from one activity or topic to a different one. Therefore, <strong>to discuss</strong> is correct."
+},
+
+
+{
+question:
+"The students were made _____ their phones outside the examination room.",
+
+options: [
+"leave",
+"leaving",
+"to leave",
+"left"
+],
+
+answer: 2,
+
+explanation:
+"In the passive form, <strong>make</strong> changes from <em>make someone do</em> to <em>someone is made to do</em>. Therefore, <strong>to leave</strong> is correct."
+},
+
+
+{
+question:
+"She would rather _____ at home than go out tonight.",
+
+options: [
+"to stay",
+"staying",
+"stay",
+"stayed"
+],
+
+answer: 2,
+
+explanation:
+"<strong>Would rather</strong> is followed by the <strong>bare infinitive</strong>: <em>would rather do something</em>. Therefore, <strong>stay</strong> is correct."
+},
+
+
+{
+question:
+"I'd rather you _____ me before making such an important decision.",
+
+options: [
+"consult",
+"to consult",
+"consulted",
+"consulting"
+],
+
+answer: 2,
+
+explanation:
+"After <strong>would rather + subject</strong>, we normally use the <strong>past simple</strong> to express a preference about another person's action. Therefore, <strong>consulted</strong> is correct."
+},
+
+
+{
+question:
+"She had difficulty _____ the complex instructions.",
+
+options: [
+"to understand",
+"understand",
+"understanding",
+"understood"
+],
+
+answer: 2,
+
+explanation:
+"The expression <strong>have difficulty</strong> is followed by a <strong>gerund</strong>: <em>have difficulty doing something</em>. Therefore, <strong>understanding</strong> is correct."
+},
+
+
+{
+question:
+"It is no use _____ about something that cannot be changed.",
+
+options: [
+"to complain",
+"complain",
+"complaining",
+"complained"
+],
+
+answer: 2,
+
+explanation:
+"The fixed expression <strong>It is no use</strong> is followed by a <strong>gerund</strong>. Therefore, <strong>complaining</strong> is correct."
+},
+
+
+{
+question:
+"She is looking forward to _____ her new classmates.",
+
+options: [
+"meet",
+"meeting",
+"to meet",
+"met"
+],
+
+answer: 1,
+
+explanation:
+"In <strong>look forward to</strong>, the word <em>to</em> is a preposition, not part of an infinitive. A preposition is followed by a <strong>gerund</strong>. Therefore, <strong>meeting</strong> is correct."
+},
+
+
+{
+question:
+"He objected to _____ treated unfairly by the committee.",
+
+options: [
+"be",
+"being",
+"to be",
+"been"
+],
+
+answer: 1,
+
+explanation:
+"Here, <strong>to</strong> is the preposition in <em>object to</em>, so it must be followed by a gerund. The passive form is <strong>being treated</strong>."
+},
+
+
+{
+question:
+"She is used to _____ early because of her demanding schedule.",
+
+options: [
+"wake up",
+"waking up",
+"to wake up",
+"woke up"
+],
+
+answer: 1,
+
+explanation:
+"In <strong>be used to</strong>, <em>to</em> is a preposition, so it is followed by a <strong>gerund</strong>. Therefore, <strong>waking up</strong> is correct."
+},
+
+
+{
+question:
+"The witness claimed _____ the suspect leaving the building.",
+
+options: [
+"see",
+"seeing",
+"to see",
+"saw"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>claim</strong> is commonly followed by the <strong>to-infinitive</strong>: <em>claim to do something</em>. Therefore, <strong>to see</strong> is correct."
+},
+
+
+{
+question:
+"We can't afford _____ any more time on this issue.",
+
+options: [
+"wasting",
+"waste",
+"to waste",
+"wasted"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>afford</strong> is normally followed by the <strong>to-infinitive</strong>: <em>afford to do something</em>. Therefore, <strong>to waste</strong> is correct."
+},
+
+
+{
+question:
+"She denied _____ the confidential information to the media.",
+
+options: [
+"to leak",
+"leak",
+"leaking",
+"leaked"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>deny</strong> is followed by a <strong>gerund</strong>: <em>deny doing something</em>. Therefore, <strong>leaking</strong> is correct."
+},
+
+
+{
+question:
+"The committee decided _____ the proposal until further research had been completed.",
+
+options: [
+"delaying",
+"delay",
+"to delay",
+"delayed"
+],
+
+answer: 2,
+
+explanation:
+"The verb <strong>decide</strong> is followed by the <strong>to-infinitive</strong>: <em>decide to do something</em>. Therefore, <strong>to delay</strong> is correct."
+}
+
+];
+
+
+/* =========================================================
+   GAME VARIABLES
+   ========================================================= */
+
+let currentQuestion = 0;
+let score = 0;
+let selectedAnswer = null;
+
+
+/* =========================================================
+   LOAD QUESTION
+   ========================================================= */
+
+function loadQuestion() {
+
+    selectedAnswer = null;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        "Question " + (currentQuestion + 1);
+
+    document.getElementById("questionText").innerHTML =
+        q.question;
+
+    document.getElementById("progressText").textContent =
+        "Question " +
+        (currentQuestion + 1) +
+        " of " +
+        questions.length;
+
+    document.getElementById("scoreText").textContent =
+        "Score: " + score;
+
+    document.getElementById("progressFill").style.width =
+        ((currentQuestion + 1) / questions.length * 100) + "%";
+
+
+    const optionsContainer =
+        document.getElementById("options");
+
+    optionsContainer.innerHTML = "";
+
+
+    q.options.forEach((option, index) => {
+
+        const div = document.createElement("div");
+
+        div.className = "option";
+
+        div.innerHTML =
+            "<strong>" +
+            String.fromCharCode(65 + index) +
+            ".</strong> " +
+            option;
+
+        div.onclick = function() {
+
+            selectAnswer(index, div);
+
+        };
+
+        optionsContainer.appendChild(div);
+
+    });
+
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+   ========================================================= */
+
+function selectAnswer(index, element) {
+
+    selectedAnswer = index;
+
+    const options =
+        document.querySelectorAll(".option");
+
+    options.forEach(option => {
+
+        option.classList.remove("selected");
+
+    });
+
+    element.classList.add("selected");
+
+}
+
+
+/* =========================================================
+   SUBMIT ANSWER
+   ========================================================= */
+
+function submitAnswer() {
+
+    if (selectedAnswer === null) {
+
+        alert("Please select an answer before submitting.");
+
+        return;
+
+    }
+
+
+    const q = questions[currentQuestion];
+
+    const isCorrect =
+        selectedAnswer === q.answer;
+
+
+    if (isCorrect) {
+
+        score++;
+
+    }
+
+
+    document.getElementById("questionScreen")
+        .classList.add("hidden");
+
+    document.getElementById("answerScreen")
+        .classList.remove("hidden");
+
+
+    const feedback =
+        document.getElementById("feedback");
+
+
+    if (isCorrect) {
+
+        feedback.className =
+            "feedback correct-feedback";
+
+        feedback.innerHTML =
+            "✓ Correct! Well done.";
+
+    } else {
+
+        feedback.className =
+            "feedback incorrect-feedback";
+
+        feedback.innerHTML =
+            "✗ Incorrect. Let's look at the correct answer.";
+
+    }
+
+
+    const correctLetter =
+        String.fromCharCode(65 + q.answer);
+
+
+    document.getElementById("correctAnswer").innerHTML =
+        correctLetter +
+        ". " +
+        q.options[q.answer];
+
+
+    document.getElementById("explanation").innerHTML =
+        q.explanation;
+
+
+    document.getElementById("scoreText").textContent =
+        "Score: " + score;
+
+
+    const nextButton =
+        document.getElementById("nextButton");
+
+
+    if (currentQuestion === questions.length - 1) {
+
+        nextButton.textContent =
+            "See Final Score →";
+
+    } else {
+
+        nextButton.textContent =
+            "Next Question →";
+
+    }
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+   ========================================================= */
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+
+    if (currentQuestion >= questions.length) {
+
+        showResults();
+
+        return;
+
+    }
+
+
+    document.getElementById("answerScreen")
+        .classList.add("hidden");
+
+    document.getElementById("questionScreen")
+        .classList.remove("hidden");
+
+
+    loadQuestion();
+
+}
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+function showResults() {
+
+    document.getElementById("answerScreen")
+        .classList.add("hidden");
+
+    document.getElementById("questionScreen")
+        .classList.add("hidden");
+
+    document.getElementById("resultsScreen")
+        .classList.remove("hidden");
+
+
+    const percentage =
+        Math.round(
+            (score / questions.length) * 100
+        );
+
+
+    document.getElementById("finalScore").innerHTML =
+        score +
+        " / " +
+        questions.length +
+        "<br>" +
+        percentage +
+        "%";
+
+
+    let message;
+
+
+    if (percentage >= 90) {
+
+        message =
+            "🌟 Excellent! Your command of these grammar structures is very strong.";
+
+    } else if (percentage >= 80) {
+
+        message =
+            "👏 Very good work! You have a strong understanding of the grammar.";
+
+    } else if (percentage >= 70) {
+
+        message =
+            "👍 Good work! Keep practicing the structures you found difficult.";
+
+    } else if (percentage >= 60) {
+
+        message =
+            "📚 Keep practicing. Review the explanations and try the exam again.";
+
+    } else {
+
+        message =
+            "💪 Keep studying and try again. Practice will help you improve.";
+
+    }
+
+
+    document.getElementById("gradeMessage").textContent =
+        message;
+
+}
+
+
+/* =========================================================
+   RESTART
+   ========================================================= */
+
+function restartExam() {
+
+    currentQuestion = 0;
+    score = 0;
+    selectedAnswer = null;
+
+
+    document.getElementById("resultsScreen")
+        .classList.add("hidden");
+
+    document.getElementById("answerScreen")
+        .classList.add("hidden");
+
+    document.getElementById("questionScreen")
+        .classList.remove("hidden");
+
+
+    loadQuestion();
+
+}
+
+
+/* =========================================================
+   START EXAM
+   ========================================================= */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
